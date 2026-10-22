@@ -1,0 +1,37 @@
+{
+  "name": "orkid-swap-mcp",
+  "version": "1.0.0",
+  "description": "Orkid Swap MCP client — MEV-protected multichain swap routing (Tycho+RFQ), gasless execution, x402-priced calls over Streamable HTTP",
+  "type": "module",
+  "bin": {
+    "orkid-swap-mcp": "./server.mjs"
+  },
+  "dependencies": {
+    "mcp-remote": "^0.15.2"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jjcav84/defi",
+    "directory": "packages/orkid-swap-mcp"
+  },
+  "homepage": "https://orkidlabs.xyz",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "swap",
+    "dex",
+    "aggregator",
+    "base",
+    "ethereum",
+    "arbitrum",
+    "x402",
+    "mev",
+    "gasless",
+    "defi"
+  ],
+  "license": "UNLICENSED",
+  "mcpName": "xyz.orkidlabs/orkid-swap"
+}
