@@ -1,6 +1,6 @@
 ---
 name: orkid-swap-mcp
-description: Route EVM token swaps and cross-chain bridges through the Orkid solver network — MEV-protected quotes, gasless Permit2 execution, best price across Tycho + RFQ liquidity. Use when a user or agent needs a token swap quote, a swap deep link to hand to a human for signing, or a bridge quote across Base, Ethereum, Arbitrum, Unichain, BSC, Polygon, or Robinhood Chain (incl. tokenized equities).
+description: Gasless MEV-protected crypto token swaps and cross-chain bridge quotes via the Orkid solver network — DEX aggregation across Tycho + RFQ liquidity, Permit2 solver-paid execution, best-price swap quotes on Base, Ethereum, Arbitrum, Unichain, BSC, Polygon, and Robinhood Chain tokenized stocks. Use when a user or agent needs a token swap quote, gasless swap without ETH for gas, a swap deep link for a human to sign, or a cross-chain bridge quote.
 license: MIT
 metadata:
   author: orkid-labs

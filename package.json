@@ -1,7 +1,7 @@
 {
   "name": "orkid-swap-mcp",
-  "version": "1.0.0",
-  "description": "Orkid Swap MCP client — MEV-protected multichain swap routing (Tycho+RFQ), gasless execution, x402-priced calls over Streamable HTTP",
+  "version": "1.0.1",
+  "description": "Orkid Swap MCP server — gasless MEV-protected token swaps and cross-chain bridge quotes for AI agents. DEX aggregator routing across Base, Ethereum, Arbitrum, Unichain, BSC, Polygon and Robinhood Chain tokenized stocks. Permit2 execution, x402 pay-per-call or free API key.",
   "type": "module",
   "bin": {
     "orkid-swap-mcp": "./server.mjs"
@@ -14,24 +14,50 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jjcav84/defi",
-    "directory": "packages/orkid-swap-mcp"
+    "url": "https://github.com/jjcav84/orkid-swap-mcp"
   },
   "homepage": "https://orkidlabs.xyz",
   "keywords": [
     "mcp",
     "mcp-server",
+    "model-context-protocol",
     "swap",
+    "token-swap",
+    "crypto-swap",
     "dex",
+    "dex-aggregator",
     "aggregator",
+    "swap-api",
+    "swap-quote",
+    "bridge",
+    "cross-chain",
+    "cross-chain-bridge",
     "base",
     "ethereum",
     "arbitrum",
+    "unichain",
+    "bsc",
+    "polygon",
+    "robinhood",
+    "robinhood-chain",
+    "tokenized-stocks",
+    "tokenized-equities",
     "x402",
+    "pay-per-call",
     "mev",
+    "mev-protection",
     "gasless",
-    "defi"
+    "permit2",
+    "ai-agent",
+    "agentic",
+    "defi",
+    "uniswap",
+    "uniswap-alternative",
+    "1inch",
+    "cowswap",
+    "paraswap",
+    "across-bridge"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "mcpName": "xyz.orkidlabs/orkid-swap"
 }
