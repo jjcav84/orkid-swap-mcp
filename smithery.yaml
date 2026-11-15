@@ -1,0 +1,19 @@
+# Smithery / stdio distribution manifest.
+# Remote-capable: prefer https://orkidlabs.xyz/api/mcp directly when the
+# client supports Streamable HTTP — this stdio entry exists for clients
+# that only speak local servers (Claude Desktop, Cursor stdio configs).
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: Orkid API key for free keyed access (optional — keyless calls are pay-per-use via x402 USDC). Get one at https://orkidlabs.xyz/partner
+    required: []
+  commandFunction: |
+    (config) => ({
+      command: 'npx',
+      args: ['-y', 'orkid-swap-mcp'],
+      env: config.apiKey ? { ORKID_API_KEY: config.apiKey } : {},
+    })
