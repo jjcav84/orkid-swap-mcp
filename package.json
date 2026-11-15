@@ -1,13 +1,13 @@
 {
   "name": "orkid-swap-mcp",
-  "version": "1.0.1",
-  "description": "Orkid Swap MCP server — gasless MEV-protected token swaps and cross-chain bridge quotes for AI agents. DEX aggregator routing across Base, Ethereum, Arbitrum, Unichain, BSC, Polygon and Robinhood Chain tokenized stocks. Permit2 execution, x402 pay-per-call or free API key.",
+  "version": "1.1.0",
+  "description": "Orkid Swap MCP server \u2014 gasless MEV-protected token swaps, cross-chain bridge quotes & StateVector market data (corridor heat, DLN order-flow, UniswapX evals, filings, macro) for AI agents. Delegates to @orkid-labs/mcp-server; x402 pay-per-call or free API key.",
   "type": "module",
   "bin": {
     "orkid-swap-mcp": "./server.mjs"
   },
   "dependencies": {
-    "mcp-remote": "^0.15.2"
+    "@orkid-labs/mcp-server": "^1.0.0"
   },
   "engines": {
     "node": ">=18"
@@ -56,7 +56,17 @@
     "1inch",
     "cowswap",
     "paraswap",
-    "across-bridge"
+    "across-bridge",
+    "statevector",
+    "market-data",
+    "corridor-heat",
+    "order-flow",
+    "uniswapx",
+    "sec-filings",
+    "macro-data",
+    "solana",
+    "dln",
+    "debridge"
   ],
   "license": "MIT",
   "mcpName": "xyz.orkidlabs/orkid-swap"

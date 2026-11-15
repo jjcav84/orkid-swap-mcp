@@ -1,13 +1,16 @@
 # orkid-swap-mcp — Gasless Token Swaps & Bridge Quotes for AI Agents (MCP)
 
-**MCP server for crypto swaps**: MEV-protected DEX aggregation across Tycho +
-RFQ liquidity, gasless Permit2 execution, and cross-chain bridge quotes —
-on **Base, Ethereum, Arbitrum, Unichain, BSC, Polygon, and Robinhood Chain**
-(tokenized stocks & equities, chain ID 4663).
+**MCP server for crypto swaps + market data**: MEV-protected DEX aggregation
+across Tycho + RFQ liquidity, gasless Permit2 execution, cross-chain bridge
+quotes — plus **StateVector** datasets (corridor heat, DLN order-flow evals,
+UniswapX telemetry, SEC filings, macro, futures) — on **Base, Ethereum,
+Arbitrum, Unichain, BSC, Polygon, and Robinhood Chain** (tokenized stocks &
+equities, chain ID 4663).
 
-Stdio bridge to the Orkid Swap remote MCP server — gives Claude Desktop,
-Cursor, and other stdio-only MCP clients access. Streamable-HTTP clients
-connect directly to `https://orkidlabs.xyz/api/mcp` — no package needed.
+Stdio bridge to the Orkid Swap remote MCP server via `@orkid-labs/mcp-server`
+— gives Claude Desktop, Cursor, and other stdio-only MCP clients access.
+Streamable-HTTP clients connect directly to `https://orkidlabs.xyz/api/mcp` —
+no package needed.
 
 ## Why agents use it
 
@@ -50,12 +53,15 @@ npx -y orkid-swap-mcp
   "mcpServers": {
     "orkid-swap": {
       "command": "npx",
-      "args": ["-y", "orkid-swap-mcp", "--header", "X-ORKID-API-Key:${ORKID_API_KEY}"],
+      "args": ["-y", "orkid-swap-mcp"],
       "env": { "ORKID_API_KEY": "<your-key>" }
     }
   }
 }
 ```
+
+`ORKID_API_KEY` is forwarded upstream as the `X-ORKID-API-Key` header.
+Get a free key at https://orkidlabs.xyz/partner
 
 ### Remote-only clients
 
@@ -73,6 +79,10 @@ https://orkidlabs.xyz/api/mcp
 | `orkid_bridge_quote` | $0.002 via x402 (free w/ API key) | Cross-chain bridge quote via Across — unsigned tx data |
 | `orkid_chains` | free | Supported chains, live/paused status, gasless minimums |
 | `orkid_swap_link` | free | Prefilled orkidlabs.xyz swap URL for human review |
+| `sv_flow` | $0.01 via x402 (free w/ API key) | Corridor heat — cross-chain flow aggregated per venue×chain×token corridor |
+| `sv_intents` | $0.005 via x402 (free w/ API key) | DLN order-eval book — live per-order margin/cost records |
+| `sv_uniswapx` | $0.02 via x402 (free w/ API key) | UniswapX order-flow evals + realizability funnel |
+| `sv_*` (18 more) | $0.005–$0.25 via x402 | Filings, macro, futures, factors, COT, treasury, AML screening, FSDS archive |
 
 ## Supported chains
 
@@ -112,6 +122,7 @@ Docs: https://docs.orkidlabs.xyz/docs/x402
 - Swap UI: https://orkidlabs.xyz/swap
 - Docs: https://docs.orkidlabs.xyz
 - MCP Registry: `xyz.orkidlabs/orkid-swap`
-- Smithery skill: `jjcav84/orkid-swap-mcp`
+- Canonical package: `@orkid-labs/mcp-server` (npm) — this package delegates to it
+- Docs: https://docs.orkidlabs.xyz/docs/api/statevector
 
 License: MIT

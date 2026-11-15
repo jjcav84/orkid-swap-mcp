@@ -1,17 +1,18 @@
 #!/usr/bin/env node
-// Orkid Swap MCP client — bridges stdio MCP clients to the remote
-// Streamable HTTP endpoint at https://orkidlabs.xyz/api/mcp via mcp-remote.
-// Paid tools (orkid_quote, orkid_bridge_quote) settle via x402 on Base USDC;
-// API-key holders pass --header "X-ORKID-API-Key: <key>" for free keyed access.
+// Orkid Swap MCP client — stdio bridge delegating to @orkid-labs/mcp-server,
+// which proxies the remote Streamable HTTP endpoint at
+// https://orkidlabs.xyz/api/mcp via the official MCP SDK.
+// Paid tools settle via x402 on Base USDC; API-key holders set
+// ORKID_API_KEY (sent upstream as X-ORKID-API-Key) for free keyed access.
 
 import { createRequire } from 'node:module'
 import { spawnSync } from 'node:child_process'
 
 const require = createRequire(import.meta.url)
-const proxy = require.resolve('mcp-remote/dist/proxy.js')
+const entry = require.resolve('@orkid-labs/mcp-server/dist/index.js')
 
-const url = process.env.ORKID_MCP_URL || 'https://orkidlabs.xyz/api/mcp'
-const args = [proxy, url, ...process.argv.slice(2)]
-
-const res = spawnSync(process.execPath, args, { stdio: 'inherit' })
+const res = spawnSync(process.execPath, [entry, ...process.argv.slice(2)], {
+  stdio: 'inherit',
+  env: process.env,
+})
 process.exit(res.status ?? 0)
