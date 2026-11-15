@@ -1,10 +1,10 @@
 ---
 name: orkid-swap-mcp
-description: Gasless MEV-protected crypto token swaps and cross-chain bridge quotes via the Orkid solver network — DEX aggregation across Tycho + RFQ liquidity, Permit2 solver-paid execution, best-price swap quotes on Base, Ethereum, Arbitrum, Unichain, BSC, Polygon, and Robinhood Chain tokenized stocks. Use when a user or agent needs a token swap quote, gasless swap without ETH for gas, a swap deep link for a human to sign, or a cross-chain bridge quote.
+description: Gasless MEV-protected crypto token swaps, cross-chain bridge quotes, and StateVector market data via the Orkid solver network — DEX aggregation across Tycho + RFQ liquidity, Permit2 solver-paid execution, corridor heat, DLN order-flow evals, UniswapX telemetry, SEC filings and macro panels. Use when a user or agent needs a token swap quote, gasless swap without ETH for gas, a swap deep link for a human to sign, a cross-chain bridge quote, or proprietary cross-chain flow/intent data.
 license: MIT
 metadata:
   author: orkid-labs
-  version: "1.0"
+  version: "1.1"
   mcp-endpoint: https://orkidlabs.xyz/api/mcp
   npm: orkid-swap-mcp
   registry: xyz.orkidlabs/orkid-swap
@@ -53,6 +53,16 @@ link.
 
 Cross-chain bridge quote (Across under the hood) for moves like
 Base → Arbitrum or any supported pair including Polygon.
+
+### `sv_*` StateVector tools
+
+Proprietary market-data tools from Orkid's own listener/solver telemetry:
+`sv_flow` (corridor heat — cross-chain flow per venue×chain×token corridor,
+$0.01), `sv_intents` (live DLN order-eval book — per-order margin/cost,
+$0.005), `sv_uniswapx` (UniswapX order-flow evals + realizability funnel,
+$0.02), plus filings, macro, futures, factors, COT, treasury, AML screening
+and the FSDS bulk archive ($0.005–$0.25, $499 bulk). Same auth model:
+API key free, keyless calls pay via x402.
 
 ## Usage pattern
 
